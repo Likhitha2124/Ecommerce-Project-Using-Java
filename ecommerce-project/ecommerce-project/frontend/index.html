@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General Goods — Catalog</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">General <span>Goods</span></div>
+    <nav>
+        <a href="index.html">Shop</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+    <button class="cart-pill" id="cartToggle">Cart (<span id="cartCount">0</span>)</button>
+</header>
+
+<section class="hero">
+    <h1>Everyday things, well made.</h1>
+    <p>A small catalog of goods pulled straight from the database — add items to your basket and check out below.</p>
+</section>
+
+<div class="filters">
+    <input type="text" id="searchInput" placeholder="Search products…">
+    <select id="categoryFilter">
+        <option value="">All categories</option>
+    </select>
+</div>
+
+<div class="grid" id="productGrid">
+    <!-- product cards injected by store.js -->
+</div>
+
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+        <h3>Your Basket</h3>
+        <button class="btn btn-outline" id="closeCart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="cart-total-row">
+            <span>Total</span>
+            <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="btn btn-mustard" style="width:100%" id="checkoutBtn">Checkout</button>
+    </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/api.js"></script>
+<script src="js/store.js"></script>
+</body>
+</html>

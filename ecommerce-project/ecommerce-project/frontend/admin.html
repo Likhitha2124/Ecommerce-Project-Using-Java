@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General Goods — Admin</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">General <span>Goods</span></div>
+    <nav>
+        <a href="index.html">Shop</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+</header>
+
+<div class="admin-wrap">
+    <div class="admin-header">
+        <h1 id="formTitle">Add a product</h1>
+    </div>
+
+    <!-- CREATE / UPDATE form -->
+    <div class="panel">
+        <form id="productForm">
+            <input type="hidden" id="productId">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="field">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" placeholder="e.g. Electronics">
+                </div>
+                <div class="field">
+                    <label for="price">Price ($)</label>
+                    <input type="number" id="price" step="0.01" min="0" required>
+                </div>
+                <div class="field">
+                    <label for="stockQuantity">Stock quantity</label>
+                    <input type="number" id="stockQuantity" min="0" required>
+                </div>
+                <div class="field full">
+                    <label for="imageUrl">Image URL</label>
+                    <input type="text" id="imageUrl" placeholder="https://…">
+                </div>
+                <div class="field full">
+                    <label for="description">Description</label>
+                    <textarea id="description"></textarea>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="submitBtn">Create product</button>
+                <button type="button" class="btn btn-outline" id="cancelEditBtn" style="display:none">Cancel edit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- READ / list with DELETE + edit -->
+    <div class="panel">
+        <h2 style="margin-bottom:16px;">All products</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state" style="display:none;">No products yet — add one above.</div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/api.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
